@@ -13,9 +13,13 @@
     --color-background: #F5F5F7;
     --color-fill: #FFFFFF;
     --color-shadow: rgba(0, 0, 0, 0.04);
-    /* --color-fill-secondary: #fbfbfd; */
+    --color-fill-secondary: #E2E2E2;
     --color-tag: white;
     --color-tint: pink;
+}
+
+html {
+    font-size: 18px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -24,6 +28,7 @@
         --color-secondary: #B0B0BF;
         --color-background: #1D1D1F;
         --color-fill: #121216;
+        --color-fill-secondary: #292929;
         --color-shadow: rgba(0, 0, 0, 0.1);
         --color-tag: #121216;
     }
@@ -31,14 +36,12 @@
 
 * {
     margin: auto;
-    padding: auto;
     box-sizing: border-box;
 }
 
 body {
     background: var(--color-background);
     color: var(--color-primary);
-    font-family: Helvetica, Arial;
     text-align: center;
 }
 
@@ -48,12 +51,20 @@ a {
 }
 
 
+/* Fonts */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+
 /* a:visited {
     color: var(--color-tint);
     text-decoration: none
 } */
 
-.content {
+.wrapper {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -61,7 +72,7 @@ a {
 }
 
 @media (max-width: 600px) {
-    .content {
+    .wrapper {
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -128,13 +139,6 @@ nav li a.selected {
 
 /* Feed */
 
-.feed {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 48%));
-    grid-gap: 20px;
-    margin: 0 auto 30px;
-}
-
 
 /* Article Card */
 
@@ -142,6 +146,7 @@ nav li a.selected {
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .article-card a.main {
@@ -158,6 +163,11 @@ nav li a.selected {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.article-card .metadata>* {
+    display: inline-block;
+    *display: inline
 }
 
 .article-card .pubdate {
@@ -200,4 +210,142 @@ nav li a.selected {
 .article {
     display: block;
     text-align: left;
+    /* 
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace; 
+    */
 }
+
+.article h1,
+h2,
+h3,
+h4 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.article h1 {
+    font-size: 2.5rem;
+}
+
+.article h2 {
+    font-size: 2rem;
+}
+
+.article h3 {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.article h4 {
+    font-size: 1.2rem;
+}
+
+.article p {
+    font-size: 19px;
+    line-height: 1.6rem;
+}
+
+.article s {
+    color: var(--color-secondary);
+}
+
+
+/* Code */
+
+p code {
+    padding: 3px 5px;
+    border-radius: 8px;
+    background-color: var(--color-fill-secondary);
+    color: var(--color-secondary);
+}
+
+pre {
+    overflow: hidden;
+    display: block;
+    background-color: var(--color-fill);
+    padding: 18px 18px;
+    margin-top: 18px;
+    border-radius: 18px;
+    text-align: left;
+    transition: box-shadow, transform .16s ease-out;
+    will-change: box-shadow, transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Variables */
+    --declarations: #a9bcbc;
+    --background: #1F1F24;
+    --comment: #6C7986;
+    --string: #C41A16;
+    --number: #D0BF69;
+    --keyword: #FC5FA3;
+    --type: #D0BF69;
+    --property: #41A1C0;
+    --call: #9EF1DD;
+    --preprocessing: #FD8F3F;
+    /* -- */
+    margin-bottom: 1.5em;
+    background-color: var(--background);
+    padding: 16px 0;
+    border-radius: 16px;
+}
+
+pre code {
+    font-family: 'Roboto Mono', monospace;
+    display: block;
+    padding: 0 20px;
+    color: var(--declarations);
+    line-height: 1.4em;
+    font-size: 0.95em;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+
+pre code .comment {
+    color: var(--comment);
+    font-weight: 100;
+}
+
+pre code .string {
+    color: var(--string);
+}
+
+pre code .number {
+    color: var(--number);
+}
+
+pre code .keyword {
+    color: var(--keyword);
+    font: bold!important;
+    font-weight: 700;
+}
+
+pre code .preprocessing {
+    color: --preprocessing;
+}
+
+pre code .type {
+    color: var(--type);
+}
+
+pre code .property {
+    color: var(--property);
+}
+
+pre code .call {
+    color: var(--call);
+}
+
+pre code .dotAccess {
+    color: #92b300;
+}
+
+
+/* 
+.card:hover {
+    box-shadow: 0 5px 10px var(--color-shadow);
+    transform: scale(1.007);
+} */
