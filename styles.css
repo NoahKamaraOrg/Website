@@ -1,0 +1,203 @@
+/**
+ *  Publish Foundation theme
+ *  Copyright (c) John Sundell 2019
+ *  MIT license, see LICENSE file for details
+ */
+
+
+/* COLOR SCHEME */
+
+:root {
+    --color-primary: #121216;
+    --color-secondary: #515154;
+    --color-background: #F5F5F7;
+    --color-fill: #FFFFFF;
+    --color-shadow: rgba(0, 0, 0, 0.04);
+    /* --color-fill-secondary: #fbfbfd; */
+    --color-tag: white;
+    --color-tint: pink;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+     :root {
+        --color-primary: #FFFFFF;
+        --color-secondary: #B0B0BF;
+        --color-background: #1D1D1F;
+        --color-fill: #121216;
+        --color-shadow: rgba(0, 0, 0, 0.1);
+        --color-tag: #121216;
+    }
+}
+
+* {
+    margin: auto;
+    padding: auto;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-primary);
+    font-family: Helvetica, Arial;
+    text-align: center;
+}
+
+a {
+    color: var(--color-tint)!important;
+    text-decoration: none
+}
+
+
+/* a:visited {
+    color: var(--color-tint);
+    text-decoration: none
+} */
+
+.content {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 40px 0 40px;
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* HEADER */
+
+header {
+    background-color: var(--color-fill);
+}
+
+header .wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header .site-name {
+    font-size: 1.5em;
+    color: var(--color-primary)!important;
+    font-weight: bold;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 7px;
+    line-height: 1.5em;
+}
+
+nav li a.selected {
+    text-decoration: underline;
+}
+
+
+/* Default Card */
+
+.card {
+    overflow: hidden;
+    display: block;
+    background-color: var(--color-fill);
+    padding: 18px 18px;
+    border-radius: 18px;
+    text-align: left;
+    transition: box-shadow, transform .16s ease-out;
+    will-change: box-shadow, transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 5px 10px var(--color-shadow);
+    transform: scale(1.007);
+}
+
+
+/* Feed */
+
+.feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 48%));
+    grid-gap: 20px;
+    margin: 0 auto 30px;
+}
+
+
+/* Article Card */
+
+.article-card {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+
+.article-card a.main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.article-card a.main::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.article-card .pubdate {
+    color: var(--color-secondary);
+    font-size: 0.8rem;
+}
+
+.article-card .description {
+    line-height: 1.4rem;
+}
+
+
+/* Tag List */
+
+.tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: auto;
+    align-content: start
+}
+
+.tags span {
+    padding: 4px 8px;
+    border-radius: 10px;
+    margin: 0px 5px 5px 0px;
+    text-decoration: none;
+    color: var(--color-tag);
+}
+
+.tags span a {
+    color: var(--color-tag)
+}
+
+
+/* Article */
+
+.article {
+    display: block;
+    text-align: left;
+}
