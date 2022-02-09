@@ -1,11 +1,19 @@
 /**
- *  Publish Foundation theme
- *  Copyright (c) John Sundell 2019
+ *  NoahKamaraCom Theme
+ *  Copyright (c) Noah Kamara 2022
  *  MIT license, see LICENSE file for details
  */
 
 
 /* COLOR SCHEME */
+
+
+/* 121216-515154-F5F5F7-FFFFFF-E2E2E2-FFFFFF
+FFFFFF-B0B0BF-1D1D1F-121216-292929-121216 */
+
+html {
+    font-size: 18px;
+}
 
 :root {
     --color-primary: #121216;
@@ -15,11 +23,7 @@
     --color-shadow: rgba(0, 0, 0, 0.04);
     --color-fill-secondary: #E2E2E2;
     --color-tag: white;
-    --color-tint: pink;
-}
-
-html {
-    font-size: 18px;
+    --color-tint: #FFA400;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -32,6 +36,10 @@ html {
         --color-shadow: rgba(0, 0, 0, 0.1);
         --color-tag: #121216;
     }
+}
+
+html {
+    font-size: 18px;
 }
 
 * {
@@ -82,14 +90,17 @@ body {
 /* HEADER */
 
 header {
-    background-color: var(--color-fill);
+    /* background-color: var(--color-tint); */
+    background: linear-gradient(to bottom, var(--color-tint), #E09200);
+    text-align: left;
 }
 
-header .wrapper {
+
+/* header .wrapper {
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
-}
+} */
 
 header a {
     text-decoration: none;
@@ -103,12 +114,22 @@ header .site-name {
 
 nav {
     margin-top: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+nav ul {
+    padding-left: 0;
 }
 
 nav li {
     display: inline-block;
     margin: 0 7px;
     line-height: 1.5em;
+}
+
+nav li a {
+    color: var(--color-primary)!important
 }
 
 nav li a.selected {
@@ -139,6 +160,11 @@ nav li a.selected {
 
 /* Feed */
 
+.feed {
+    list-style: none;
+    padding-left: 0;
+}
+
 
 /* Article Card */
 
@@ -165,14 +191,14 @@ nav li a.selected {
     bottom: 0;
 }
 
-.article-card .metadata>* {
-    display: inline-block;
-    *display: inline
-}
-
 .article-card .pubdate {
     color: var(--color-secondary);
     font-size: 0.8rem;
+}
+
+.article-card .tags {
+    margin-top: 5px!important;
+    margin-bottom: 3px!important;
 }
 
 .article-card .description {
@@ -183,7 +209,7 @@ nav li a.selected {
 /* Tag List */
 
 .tags {
-    margin-top: 10px;
+    margin: 10px 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -198,6 +224,8 @@ nav li a.selected {
     margin: 0px 5px 5px 0px;
     text-decoration: none;
     color: var(--color-tag);
+    font-weight: 400;
+    font-size: smaller;
 }
 
 .tags span a {
@@ -218,9 +246,9 @@ nav li a.selected {
 }
 
 .article h1,
-h2,
-h3,
-h4 {
+.article h2,
+.article h3,
+.article h4 {
     font-family: 'Poppins', sans-serif;
     margin-top: 1rem;
     font-weight: 700;
@@ -260,6 +288,25 @@ p code {
     border-radius: 8px;
     background-color: var(--color-fill-secondary);
     color: var(--color-secondary);
+}
+
+pre:hover .copy-button {
+    opacity: 0;
+}
+
+pre .copy-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #f1f1f1;
+    background: var(--color-background);
+    background-blend-mode: soft-light;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
 pre {
